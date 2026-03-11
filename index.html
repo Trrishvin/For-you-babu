@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loading...</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<img id="meme">
+
+<audio id="audio" src="moan.mp3" loop></audio>
+
+<script>
+
+const memes = [
+"meme1.jpg",
+"meme2.jpg",
+"meme3.jpg",
+"meme4.jpg",
+"meme5.jpg"
+];
+
+const random = memes[Math.floor(Math.random()*memes.length)];
+
+document.getElementById("meme").src = random;
+
+const audio = document.getElementById("audio");
+
+function playAudio(){
+    audio.volume = 1.0;
+    audio.play();
+}
+
+window.onload = playAudio;
+
+// fallback if autoplay blocked
+document.body.addEventListener("click", playAudio);
+
+</script>
+
+</body>
+</html>
